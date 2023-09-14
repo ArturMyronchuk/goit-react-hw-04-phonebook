@@ -23,7 +23,10 @@ export const App = () => {
 
   const createUser = contact => {
     const { name } = contact;
-    if (contacts.find(contact => name === contact.name)) {
+    const lowerCaseName = name.toLowerCase(); // Перетворюємо ім'я до нижнього регістру
+    if (
+      contacts.find(contact => lowerCaseName === contact.name.toLowerCase())
+    ) {
       alert(`${name} is already in contacts`);
       return;
     }
